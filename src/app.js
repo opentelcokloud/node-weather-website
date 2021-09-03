@@ -102,12 +102,7 @@ app.get('/weather', (req, res) => {
             
         })
     })
-
-    // res.send({
-    //     address: req.query.address,
-    //     forcast: 'Sunny all day',
-    //     location: '123.456, 789.000'
-    // })    
+      
 })
 
 // Test Query String (or the parameters in the req () function)
