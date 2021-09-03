@@ -80,12 +80,14 @@ app.get('/weather', (req, res) => {
         })
     }
 
-    geocode(req.query.address, (error, data) => {
+    // Destructure the data object and set default value for them
+    // This is to avoid "Undefined Error"
+    geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
         if (error) {
         //    return console.log(error)
             return res.send(error)
         }
-        const {latitude = 0, longitude = 0, location = ''} = data
+        //const {latitude = 0, longitude = 0, location = ''} = data
 
         focast(latitude, longitude, (error, forecastData) => {
             if (error) {
@@ -105,23 +107,6 @@ app.get('/weather', (req, res) => {
       
 })
 
-// Test Query String (or the parameters in the req () function)
-// or the text that you add after your url link: eg: /products?search=chair
-
-app.get('/products', (req, res) => {
-    if (!req.query.search){
-        return res.send({
-            error: 'Your must provide a search term'
-        })
-    }
-
-    console.log(req.query.search)
-    console.log(req.query.rating)
-    console.log(req.query.property)
-    res.send({
-        products: []
-    })
-})
 
 app.get('/help/*', (req, res) => {
     res.render('error', {
