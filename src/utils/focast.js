@@ -12,7 +12,8 @@ const focast = (latitude, longitude, callback) => {
             const wsum = body.current.weather_descriptions[0]
             const temp = body.current.temperature
             const humi = body.current.humidity
-            callback(undefined, wsum + '. Temperature: ' + temp + ' C degree' + ' and Humidity is : ' + humi + '%')
+            const feel = body.current.feelslike
+            callback(undefined, wsum + '. Temperature: ' + temp + ' C degree' + ' and Humidity is : ' + humi + '%. It feels like ' + feel + ' C degree !')
         }
     })
 }
