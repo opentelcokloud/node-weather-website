@@ -51,7 +51,7 @@ app.get('/about', (req, res) => {
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        title: 'What can I do to help you',
+        title: 'What can I do to help you?',
         name: 'Open Telco Kloud'
     })
 })
